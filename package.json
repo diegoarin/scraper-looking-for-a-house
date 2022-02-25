@@ -1,0 +1,22 @@
+{
+  "name": "scraper-looking-for-a-house",
+  "version": "1.0.0",
+  "description": "Scraper para obtener publicaciones de casas según ciertos filtros y notificarlos en un grupo de telegram",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegoarin/scraper-looking-for-a-house"
+  },
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "0.56.0",
+    "playwright-chromium": "1.19.1"
+  },
+  "devDependencies": {
+    "standard": "16.0.4"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
