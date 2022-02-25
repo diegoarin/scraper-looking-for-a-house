@@ -80,14 +80,14 @@ const HOUSES_BY_NEIGHBORHOOD = [
 module.exports = async function (context, myTimer) {
     const browser = await chromium.launch()
     let countLinks = 0;
+    const formattedFilters = `<b>Filtros:</b> <code>casas</code>, <code>venta</code>, <code>150K-300K</code>, <code>jardín</code>, <code>publicadas hoy</code> 🤞`
+            
+    bot.sendMessage(process.env.TELEGRAM_CHAT_ID, formattedFilters, { parse_mode: 'HTML', disable_web_page_preview: true })
+
     try {
         for (const neighborhoodInfo of HOUSES_BY_NEIGHBORHOOD) {
             const { getLinks, neighborhood, url } = neighborhoodInfo
             const links = await getLinks({ browser, url })
-
-            const formattedFilters = `<b>Filtros:</b> <code>casas</code>, <code>venta</code>, <code>150K-300K</code>, <code>jardín</code>, <code>publicadas hoy</code> 🤞`
-            
-            bot.sendMessage(process.env.TELEGRAM_CHAT_ID, formattedFilters, { parse_mode: 'HTML', disable_web_page_preview: true })
 
             if (links.length > 0) {
                 countLinks+=links.length
